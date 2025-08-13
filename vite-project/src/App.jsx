@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import EventHandler from './EventHandler';
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCount(prevCount => prevCount + 1);
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
+  const [showMessage, setShowMessage] = useState(false);
 
   return (
-    <div>
-      <h2>Count: {count}</h2>
-      <button onClick={() => setCount(prevCount => prevCount + 1)}>
-        Increment
+    <>
+      <button onClick={() => setShowMessage(!showMessage)}>
+        Toggle Message
       </button>
-    </div>
+
+      {showMessage && <p>Hello, React Event Handling!</p>}
+
+     
+      <EventHandler />
+    </>
   );
 }
 
 export default App;
+
