@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import EventHandler from './EventHandler';
+
 
 function App() {
-  const [showMessage, setShowMessage] = useState(false);
+  const items = ['Apple', 'Banana', 'Orange', 'Mango'];
+
 
   return (
     <>
-      <button onClick={() => setShowMessage(!showMessage)}>
-        Toggle Message
-      </button>
 
-      {showMessage && <p>Hello, React Event Handling!</p>}
-
-     
-      <EventHandler />
+<ul>
+  {items.map((item, index) => (
+    <li key={index}>{item}</li>
+  ))}
+</ul>
     </>
   );
 }
